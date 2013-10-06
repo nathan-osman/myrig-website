@@ -4,6 +4,10 @@ Do not put global settings in this file
 Instead, put them in settings.py
 '''
 
+# Uncomment the next two lines when developing locally
+#DEBUG          = True
+#TEMPLATE_DEBUG = True
+
 # Database storage engine(s) for the project
 DATABASES = {
     'default': {
@@ -25,4 +29,4 @@ MEDIA_URL  = '/media/'
 STATIC_URL = '/static/'
 
 # This needs to be a unique string
-SECRET_KEY = '6_*l@$bqnl)36(tci-lo&lwa)))t$b=pi688bl9m3*+xunf(yt'
+SECRET_KEY = ''
