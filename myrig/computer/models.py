@@ -1,5 +1,5 @@
 from django.db import models
-from quantity import Quantity
+from myrig.computer.quantity import Quantity
 from south.modelsinspector import add_introspection_rules
 
 class SIIntegerField(models.PositiveIntegerField):
