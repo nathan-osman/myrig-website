@@ -1,3 +1,4 @@
+from django.contrib.auth import logout as logout_user
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect, render
 from django.utils.http import urlquote_plus
@@ -5,7 +6,7 @@ from myrig.accounts.forms import OpenIDLoginForm
 
 def login(request):
     '''
-    Renders the home page
+    Displays the login form
     '''
     if request.method == 'POST':
         form = OpenIDLoginForm(request.POST)
@@ -22,3 +23,11 @@ def login(request):
         'form':        form,
         'action':      'Login',
     })
+
+def logout(request):
+    '''
+    Logs the user out
+    '''
+    logout_user(request)
+    return redirect(reverse('home'))
+    

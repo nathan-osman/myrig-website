@@ -16,13 +16,23 @@
             <!-- Items go here -->
         </ul>
         <ul class="nav navbar-nav pull-right">
-            <li>
-                <a href="{% url "login" %}">
-                    <img src="{% static "img/openid.png" %}">
-                    &nbsp;
-                    Login / Register
-                </a>
-            </li>
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url "logout" %}">
+                        <span class="glyphicon glyphicon-trash"></span>
+                        &nbsp;
+                        Logout
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url "login" %}">
+                        <img src="{% static "img/openid.png" %}">
+                        &nbsp;
+                        Login / Register
+                    </a>
+                </li>   
+            {% endif %}
         </ul>
     </div>
 </div>
