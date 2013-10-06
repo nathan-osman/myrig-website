@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'widget_tweaks',
     'social.apps.django_app.default',
     # MyRig applications
+    'myrig.accounts',
     'myrig.computer',
 )
 

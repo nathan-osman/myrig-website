@@ -10,6 +10,9 @@ urlpatterns = patterns('',
     # Home page
     url(r'^$', 'myrig.views.index', name='home'),
     
+    # Application URLs
+    url(r'^accounts/', include('myrig.accounts.urls')),
+    
     # Administration interface
     url(r'^admin/', include(admin.site.urls)),
 )
