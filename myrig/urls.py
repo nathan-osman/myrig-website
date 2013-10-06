@@ -8,7 +8,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     
     # Home page
-    url(r'^$', 'myrig.views.index'),
+    url(r'^$', 'myrig.views.index', name='home'),
     
     # Administration interface
     url(r'^admin/', include(admin.site.urls)),

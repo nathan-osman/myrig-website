@@ -1,0 +1,30 @@
+/* Prevents the navbar from bordering the top of the page */
+body {
+    padding: 10px;
+}
+
+/* Makes sure images stay within their boundaries */
+img {
+    max-width: 100%;
+}
+
+/* Formats text in a footer */
+.footer {
+    background-color: #f9f9f9;
+    border-top: 2px solid #ddd;
+    color: #999;
+    padding: 30px;
+}
+
+/* Ensures that images in jumbotrons are displayed correctly */
+.jumbotron img {
+    display: block;
+    margin: 30px auto;
+}
+
+@media (min-width: 992px) {
+    /* Caps container width at 970px */
+    .container {
+        max-width: 970px;
+    }
+}

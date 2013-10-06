@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ block.super }} &middot; Show Off Your Rig{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-lg-3">
+                <img src="{% static "img/computer.png" %}">
+            </div>
+            <div class="col-lg-9">
+                <h1>Show Off Your Rig</h1>
+                <p>
+                    You've just built your dream machine.
+                    Or maybe you've just spent a couple thousand on a computer that made you drool.
+                    Whether you built it or bought it, you need a way to show it off.
+                </p>
+                <p>
+                    This is that place.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
