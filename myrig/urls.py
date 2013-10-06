@@ -7,9 +7,11 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     
+    # Home page
+    url(r'^$', 'myrig.views.index'),
+    
     # Administration interface
     url(r'^admin/', include(admin.site.urls)),
-    
 )
 
 # When running in DEBUG mode, serve media files
