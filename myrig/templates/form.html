@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <div class="page-header">
+        <h2>{{ title }}</h2>
+        <p>{{ description }}</p>
+    </div>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-lg-8">
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+                {% for field in form %}
+                    <div class="form-group">
+                        <label>
+                            {{ field.label }}
+                        </label>
+                        <p class="help-block">
+                            {{ field.help_text }}
+                        </p>
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger">{{ error }}</div>
+                        {% endfor %}
+                        {% render_field field class+="form-control" %}
+                    </div>
+                {% endfor %}
+                <br>
+                <button type="submit" class="btn btn-primary">
+                    <i class="glyphicon glyphicon-ok"></i>
+                    {{ action }}
+                </button>
+                <input type="reset" class="btn">
+            </div>
+        </div>
+    </form>
+{% endblock %}
