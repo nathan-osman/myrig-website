@@ -18,6 +18,13 @@
         <ul class="nav navbar-nav pull-right">
             {% if user.is_authenticated %}
                 <li>
+                    <a href="{% url "profile" %}">
+                        <span class="glyphicon glyphicon-home"></span>
+                        &nbsp;
+                        Profile
+                    </a>
+                </li>
+                <li>
                     <a href="{% url "logout" %}">
                         <span class="glyphicon glyphicon-trash"></span>
                         &nbsp;

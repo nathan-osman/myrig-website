@@ -31,3 +31,8 @@ def logout(request):
     logout_user(request)
     return redirect(reverse('home'))
     
+def profile(request):
+    '''
+    Displays the user's profile page
+    '''
+    return render(request, 'accounts/profile.html')
