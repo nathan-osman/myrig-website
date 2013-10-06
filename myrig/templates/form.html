@@ -16,7 +16,7 @@
                 {% endfor %}
                 {% for field in form %}
                     <div class="form-group">
-                        <label>
+                        <label for="id_{{ field.name }}">
                             {{ field.label }}
                         </label>
                         <p class="help-block">
