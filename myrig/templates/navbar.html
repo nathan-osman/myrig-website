@@ -1,3 +1,5 @@
+{% load static %}
+
 <div class="navbar navbar-default" role="navigation">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -14,6 +16,15 @@
             <li><a href="#">Item 1</a></li>
             <li><a href="#">Item 2</a></li>
             <li><a href="#">Item 3</a></li>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+            <li>
+                <a href="#">
+                    <img src="{% static "img/openid.png" %}">
+                    &nbsp;
+                    Login / Register
+                </a>
+            </li>
         </ul>
     </div>
 </div>
