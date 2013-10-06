@@ -7,6 +7,8 @@ import os.path
 # Only requests for myrig.quickmediasolutions.com will be processed
 ALLOWED_HOSTS = ['myrig.quickmediasolutions.com',]
 
+SITE_ID = 1
+
 # Enable timezone-aware datetimes
 USE_TZ    = True
 TIME_ZONE = 'America/Vancouver'
