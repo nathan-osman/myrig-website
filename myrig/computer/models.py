@@ -104,7 +104,7 @@ class Processor(Component):
             self.manufacturer,
             self.series,
             self.model,
-            '(%dx%s)' % (
+            '%dx%s' % (
                 self.cores,
                 self.clock_speed,
             ),
@@ -133,7 +133,9 @@ class Memory(Component):
         Returns a string representation of the memory
         '''
         return self._format((
-            #...
+            self.manufacturer,
+            self.size,
+            self.get_type_display(),
         ))
 
 class HardDrive(Component):
@@ -143,14 +145,16 @@ class HardDrive(Component):
     
     size = SIIntegerField(unit='B',
                           help_text='The storage capacity of the hard drive (in bytes)')
-    mechanical = models.BooleanField(help_text='Whether the hard drive is mechanical')
+    ssd = models.BooleanField(help_text='Whether the hard drive is solid state')
     
     def __unicode__(self):
         '''
         Returns a string representation of the hard drive
         '''
         return self._format((
-            #...
+            self.manufacturer,
+            self.size,
+            'SSD' if self.ssd else None,
         ))
 
 class VideoAdapter(Component):
@@ -185,9 +189,11 @@ class OperatingSystem(models.Model):
         '''
         Returns a string representation of the operating system
         '''
-        return self._format((
-            #...
-        ))
+        return '%s %s %s' % (
+            self.name,
+            self.version,
+            self.get_architecture_display(),
+        )
 
 class Computer(models.Model):
     '''
@@ -223,4 +229,7 @@ class Computer(models.Model):
         '''
         Returns a string representation of the computer
         '''
-        return 'Computer'
+        return '%s %s' % (
+            self.processors,
+            self.memory,
+        )
