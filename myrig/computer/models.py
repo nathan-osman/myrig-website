@@ -13,7 +13,7 @@ class SIIntegerField(models.PositiveIntegerField):
         '''
         Initializes the model field
         '''
-        self._unit = unit
+        self.unit = unit
         super(SIIntegerField, self).__init__(*args, **kwargs)
     
     def to_python(self, value):
@@ -23,7 +23,7 @@ class SIIntegerField(models.PositiveIntegerField):
         if isinstance(value, Quantity):
             return value
         elif value:
-            return Quantity(int(value), self._unit)
+            return Quantity(int(value), self.unit)
         else:
             return None
     
@@ -34,7 +34,15 @@ class SIIntegerField(models.PositiveIntegerField):
         return int(value)
 
 # Allows the field to be used in South migrations
-add_introspection_rules([], ['^myrig\.computer\.models\.SIIntegerField',])
+add_introspection_rules([
+    (
+        [SIIntegerField,],
+        [],
+        {
+            'unit': ['unit', {},],
+        },
+    ),
+], ['^myrig\.computer\.models\.SIIntegerField',])
 
 class Manufacturer(models.Model):
     '''

@@ -33,6 +33,8 @@ class Migration(SchemaMigration):
         # Adding model 'Processor'
         db.create_table(u'computer_processor', (
             (u'component_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['computer.Component'], unique=True, primary_key=True)),
+            ('series', self.gf('django.db.models.fields.CharField')(max_length=40, null=True, blank=True)),
+            ('clock_speed', self.gf('myrig.computer.models.SIIntegerField')(unit='Hz')),
             ('cores', self.gf('django.db.models.fields.PositiveSmallIntegerField')()),
         ))
         db.send_create_signal(u'computer', ['Processor'])
@@ -40,6 +42,7 @@ class Migration(SchemaMigration):
         # Adding model 'Memory'
         db.create_table(u'computer_memory', (
             (u'component_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['computer.Component'], unique=True, primary_key=True)),
+            ('size', self.gf('myrig.computer.models.SIIntegerField')(unit='B')),
             ('type', self.gf('django.db.models.fields.CharField')(max_length=10)),
         ))
         db.send_create_signal(u'computer', ['Memory'])
@@ -47,13 +50,15 @@ class Migration(SchemaMigration):
         # Adding model 'HardDrive'
         db.create_table(u'computer_harddrive', (
             (u'component_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['computer.Component'], unique=True, primary_key=True)),
-            ('mechanical', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('size', self.gf('myrig.computer.models.SIIntegerField')(unit='B')),
+            ('ssd', self.gf('django.db.models.fields.BooleanField')(default=False)),
         ))
         db.send_create_signal(u'computer', ['HardDrive'])
 
         # Adding model 'VideoAdapter'
         db.create_table(u'computer_videoadapter', (
             (u'component_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['computer.Component'], unique=True, primary_key=True)),
+            ('memory', self.gf('myrig.computer.models.SIIntegerField')(unit='B')),
         ))
         db.send_create_signal(u'computer', ['VideoAdapter'])
 
@@ -187,7 +192,8 @@ class Migration(SchemaMigration):
         u'computer.harddrive': {
             'Meta': {'object_name': 'HardDrive', '_ormbases': [u'computer.Component']},
             u'component_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['computer.Component']", 'unique': 'True', 'primary_key': 'True'}),
-            'mechanical': ('django.db.models.fields.BooleanField', [], {'default': 'False'})
+            'size': ('myrig.computer.models.SIIntegerField', [], {'unit': "'B'"}),
+            'ssd': ('django.db.models.fields.BooleanField', [], {'default': 'False'})
         },
         u'computer.manufacturer': {
             'Meta': {'object_name': 'Manufacturer'},
@@ -198,6 +204,7 @@ class Migration(SchemaMigration):
         u'computer.memory': {
             'Meta': {'object_name': 'Memory', '_ormbases': [u'computer.Component']},
             u'component_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['computer.Component']", 'unique': 'True', 'primary_key': 'True'}),
+            'size': ('myrig.computer.models.SIIntegerField', [], {'unit': "'B'"}),
             'type': ('django.db.models.fields.CharField', [], {'max_length': '10'})
         },
         u'computer.operatingsystem': {
@@ -209,12 +216,15 @@ class Migration(SchemaMigration):
         },
         u'computer.processor': {
             'Meta': {'object_name': 'Processor', '_ormbases': [u'computer.Component']},
+            'clock_speed': ('myrig.computer.models.SIIntegerField', [], {'unit': "'Hz'"}),
             u'component_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['computer.Component']", 'unique': 'True', 'primary_key': 'True'}),
-            'cores': ('django.db.models.fields.PositiveSmallIntegerField', [], {})
+            'cores': ('django.db.models.fields.PositiveSmallIntegerField', [], {}),
+            'series': ('django.db.models.fields.CharField', [], {'max_length': '40', 'null': 'True', 'blank': 'True'})
         },
         u'computer.videoadapter': {
             'Meta': {'object_name': 'VideoAdapter', '_ormbases': [u'computer.Component']},
-            u'component_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['computer.Component']", 'unique': 'True', 'primary_key': 'True'})
+            u'component_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['computer.Component']", 'unique': 'True', 'primary_key': 'True'}),
+            'memory': ('myrig.computer.models.SIIntegerField', [], {'unit': "'B'"})
         }
     }
 
