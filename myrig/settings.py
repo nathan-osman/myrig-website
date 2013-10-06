@@ -24,6 +24,7 @@ ROOT_URLCONF     = 'myrig.urls'
 WSGI_APPLICATION = 'myrig.wsgi.application'
 
 INSTALLED_APPS = (
+    # Core Django applications
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -31,8 +32,17 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    # Django helper applications
     'south',
+    'widget_tweaks',
+    'social.apps.django_app.default',
+    # MyRig applications
     'myrig.computer',
+)
+
+# Authentication backends
+AUTHENTICATION_BACKENDS = (
+    'social.backends.open_id.OpenIdAuth',
 )
 
 # Import local settings, which may add to or override the above settings
