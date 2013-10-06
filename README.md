@@ -13,6 +13,8 @@ Please ensure that the following requirements are met before installing MyRig:
     - you will also need a supported Python module for your database server
 - [Django 1.5+](https://pypi.python.org/pypi/Django)
 - [South](https://pypi.python.org/pypi/South)
+- [django-widget-tweaks](https://pypi.python.org/pypi/django-widget-tweaks)
+- [Python Social Auth](https://pypi.python.org/pypi/python-social-auth)
 
 ### Installation
 
