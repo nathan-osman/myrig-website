@@ -18,7 +18,7 @@ def login(request):
             ))
     else:
         form = OpenIDLoginForm()
-    return render(request, 'form.html', {
+    return render(request, 'accounts/login.html', {
         'title':       'Login',
         'description': 'Please enter your OpenID below to login or register for a new account.',
         'form':        form,

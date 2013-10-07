@@ -1,0 +1,12 @@
+.openid-provider {
+    background-image: url(../img/providers.png);
+    border: 1px solid #ddd;
+    display: inline-block;
+    height: 60px;
+    margin: 10px;
+    width: 100px;
+}
+
+.openid-provider-google    {}
+.openid-provider-yahoo     { background-position: -100px 0; }
+.openid-provider-myopenid  { background-position: -200px 0; }
