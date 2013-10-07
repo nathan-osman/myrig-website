@@ -1,8 +1,7 @@
 from django.contrib import admin
-from myrig.computer.models import Manufacturer, Component, Chipset, Processor, Memory, HardDrive, VideoAdapter, OperatingSystem, Computer, Rig
+from myrig.computer.models import Manufacturer, Chipset, Processor, Memory, HardDrive, VideoAdapter, OperatingSystem, Computer, Rig
 
 admin.site.register(Manufacturer)
-admin.site.register(Component)
 admin.site.register(Chipset)
 admin.site.register(Processor)
 admin.site.register(Memory)
