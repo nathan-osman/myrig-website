@@ -9,6 +9,7 @@ urlpatterns = patterns('myrig.accounts.views',
     # URLs for OpenID authentication
     url('', include('social.apps.django_app.urls', namespace='social')),
     
-    # User profile page
-    url(r'^profile/$', 'profile', name='profile'),
+    # User profile page and tools
+    url(r'^profile/$',                     'profile', name='profile'),
+    url(r'^profile/change-display-name/$', 'change_display_name'),
 )
