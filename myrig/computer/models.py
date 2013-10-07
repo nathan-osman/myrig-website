@@ -85,7 +85,7 @@ class Component(models.Model):
         '''
         Joins the values in the provided list that are nonzero
         '''
-        return ' '.join((v for v in values if v))
+        return ' '.join((str(v) for v in values if v))
 
 class Chipset(Component):
     '''
@@ -146,6 +146,9 @@ class Memory(Component):
             self.size,
             self.get_type_display(),
         ))
+    
+    class Meta:
+        verbose_name_plural = 'Memory'
 
 class HardDrive(Component):
     '''
