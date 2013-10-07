@@ -22,7 +22,7 @@
     $.each(providers, function(key, value) {
         
         /* Generate the provider */
-        var provider = $('<a href="#" class="openid-provider"></a>');
+        var provider = $('<a href="#" class="openid-provider" title="Click to login with this OpenID provider"></a>');
         provider.addClass('openid-provider-' + key);
         
         /* Assign an action when it is clicked */

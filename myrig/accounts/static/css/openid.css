@@ -7,6 +7,10 @@
     width: 100px;
 }
 
+.openid-provider:hover {
+    outline: 1px solid #ddd;
+}
+
 .openid-provider-google    {}
 .openid-provider-yahoo     { background-position: -100px 0; }
 .openid-provider-myopenid  { background-position: -200px 0; }
