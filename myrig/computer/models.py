@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from myrig.computer.quantity import Quantity
 from south.modelsinspector import add_introspection_rules
@@ -241,3 +242,17 @@ class Computer(models.Model):
             self.processors,
             self.memory,
         )
+
+class Rig(models.Model):
+    '''
+    Represents a computer owned by a user
+    '''
+    
+    user = models.ForeignKey(User, help_text='The owner of the rig')
+    computer = models.ForeignKey(Computer, help_text='The computer owned by the user')
+    
+    def __unicode__(self):
+        '''
+        Returns a string representation of the rig
+        '''
+        return self.computer
