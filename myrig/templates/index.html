@@ -17,7 +17,19 @@
                     Whether you built it or bought it, you need a way to show it off.
                 </p>
                 <p>
-                    This is that place.
+                    {% if user.is_authenticated %}
+                        <a href="#" class="btn btn-success">
+                            <span class="glyphicon glyphicon-play"></span>
+                            &nbsp;
+                            Start Now
+                        </a>
+                    {% else %}
+                        <a href="{% url "login" %}" class="btn btn-success">
+                            <span class="glyphicon glyphicon-log-in"></span>
+                            &nbsp;
+                            Login / Register
+                        </a>
+                    {% endif %}
                 </p>
             </div>
         </div>

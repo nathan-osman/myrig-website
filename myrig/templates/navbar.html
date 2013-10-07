@@ -19,14 +19,14 @@
             {% if user.is_authenticated %}
                 <li>
                     <a href="{% url "profile" %}">
-                        <span class="glyphicon glyphicon-home"></span>
+                        <span class="glyphicon glyphicon-user"></span>
                         &nbsp;
                         Profile
                     </a>
                 </li>
                 <li>
                     <a href="{% url "logout" %}">
-                        <span class="glyphicon glyphicon-trash"></span>
+                        <span class="glyphicon glyphicon-log-out"></span>
                         &nbsp;
                         Logout
                     </a>

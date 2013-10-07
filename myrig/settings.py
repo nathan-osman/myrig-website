@@ -44,6 +44,7 @@ INSTALLED_APPS = (
 # Authentication backends
 AUTHENTICATION_BACKENDS = (
     'social.backends.open_id.OpenIdAuth',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 # Import local settings, which may add to or override the above settings
