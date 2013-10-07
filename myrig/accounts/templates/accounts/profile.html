@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}{{ user }} &middot; {{ block.super }}{% endblock %}
+{% block title %}{{ user.get_full_name|default:user }} &middot; {{ block.super }}{% endblock %}
 
 {% block content %}
     <div class="page-header">
-        <h2>{{ user }}</h2>
+        <h2>{{ user.get_full_name|default:user }}</h2>
         <p>This page allows you to customize your user profile.</p>
     </div>
     <div class="row">
